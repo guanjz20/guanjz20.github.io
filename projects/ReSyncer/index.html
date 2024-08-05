@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="keywords" content="ReSyncer; Lip Sync; Talking Face Generation; Deep learning;">
+  <meta name="description" content="
+  Lip-syncing videos with given audio is the foundation for various applications including the creation of virtual presenters or performers. While recent studies explore high-fidelity lip-sync with different techniques, their task-orientated models either require long-term videos for clip-specific training or retain visible artifacts. In this paper, we propose a unified and effective framework ReSyncer, that synchronizes generalized audio-visual facial information. The key design is revisiting and rewiring the Style-based generator to efficiently adopt 3D facial dynamics predicted by a principled style-injected Transformer. By simply re-configuring the information insertion mechanisms within the noise and style space, our framework fuses motion and appearance with unified training. Extensive experiments demonstrate that ReSyncer not only produces high-fidelity lip-synced videos according to audio, but also supports multiple appealing properties that are suitable for creating virtual presenters and performers, including fast personalized fine-tuning, video-driven lip-syncing, the transfer of speaking styles, and even face swapping.
+  ">
+  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+  <link rel="stylesheet" href="css.css" type="text/css">
+  <link rel="stylesheet" href="project.css" type="text/css" media="screen">
+  <script async="" src="prettify.js"></script>
+
+  <title>ReSyncer</title>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39824124-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>
+          ReSyncer: Rewiring Style-based Generator for Unified Audio-Visually Synced Facial Performer
+        </h1>
+
+        <div class="authors">
+          <a href="https://guanjz20.github.io/">Jiazhi Guan</a><sup>1,2*</sup>&nbsp;&nbsp;
+          <a href="https://seanseattle.github.io/">Zhiliang Xu</a><sup>2*</sup>&nbsp;&nbsp;
+          <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><sup>2†</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=2Pedf3EAAAAJ">Kaisiyuan Wang</a><sup>2</sup>&nbsp;&nbsp;
+          Shengyi He<sup>2</sup>&nbsp;&nbsp;
+          Zhanwang Zhang<sup>2</sup>&nbsp;&nbsp;
+          <br>
+          <a href="https://scholar.google.com/citations?user=miLIl2gAAAAJ&hl=en">Borong
+            Liang</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?hl=zh-CN&user=pnuQ5UsAAAAJ&view_op=list_works&sortby=pubdate">Haocheng
+            Feng</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=1wzEtxcAAAAJ">Errui Ding</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=tVV3jmcAAAAJ">Jingtuo Liu<sup>2</sup>&nbsp;&nbsp;
+            <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a><sup>2</sup>&nbsp;&nbsp;
+            <a href="https://www.cs.tsinghua.edu.cn/csen/info/1309/4355.htm">Youjian Zhao</a><sup>1,3†</sup>&nbsp;&nbsp;
+            <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>4</sup>&nbsp;&nbsp;
+        </div>
+
+        <div class="affiliations">
+
+          1. BNRist, DCST, Tsinghua University,&nbsp;&nbsp;
+          2. Baidu Inc.,<br>
+          3. Zhongguancun Laboratory,&nbsp;&nbsp;
+          4. S-Lab, Nanyang Technological University.
+        </div>
+
+        <div class="venue">European Conference on Computer Vision (<a href="https://eccv2024.ecva.net/">ECCV</a>) 2024
+        </div>
+      </div>
+
+      <center><img src="pipeline.png" border="0" width="90%"></center>
+
+      <div class="section abstract">
+        <h1>Abstract</h1>
+        <br>
+        <p>
+          Lip-syncing videos with given audio is the foundation for various applications including the creation of
+          virtual presenters or performers. While recent studies explore high-fidelity lip-sync with different
+          techniques, their task-orientated models either require long-term videos for clip-specific training or retain
+          visible artifacts. In this paper, we propose a unified and effective framework ReSyncer, that synchronizes
+          generalized audio-visual facial information. The key design is revisiting and rewiring the Style-based
+          generator to efficiently adopt 3D facial dynamics predicted by a principled style-injected Transformer. By
+          simply re-configuring the information insertion mechanisms within the noise and style space, our framework
+          fuses motion and appearance with unified training. Extensive experiments demonstrate that ReSyncer not only
+          produces high-fidelity lip-synced videos according to audio, but also supports multiple appealing properties
+          that are suitable for creating virtual presenters and performers, including fast personalized fine-tuning,
+          video-driven lip-syncing, the transfer of speaking styles, and even face swapping.
+        </p>
+      </div>
+
+      <div class="section demo">
+        <h1>Demo Video</h1>
+        <br>
+        <center>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/ayyJSmv4Nzo" frameborder="0"
+            allowfullscreen></iframe>
+          </video>
+        </center>
+      </div>
+
+      <div class="section materials">
+        <h1>Materials</h1>
+        <center>
+          <ul>
+            <li class="grid">
+              <div class="griditem">
+                <a href="https://arxiv.org/pdf/xxx.pdf" class="imageLink"><img src="paper.png"></a>
+                <br>
+                <a href="https://arxiv.org/pdf/xxx.pdf">Paper</a>
+              </div>
+            </li>
+
+            <!-- <li class="grid">
+              <div class="griditem">
+                <a href="https://github.com/guanjz20/ReSyncer" class="imageLink"><img src="code.png"></a>
+                <br>
+                <a href="https://github.com/guanjz20/ReSyncer">Code</a>
+              </div>
+            </li>  -->
+
+          </ul>
+        </center>
+      </div>
+
+      <div class="section citation">
+        <h1>Citation</h1>
+        <div class="section bibtex">
+          <pre>
+@inproceedings{guan2024resyncer,
+  title = {ReSyncer: Rewiring Style-based Generator for Unified Audio-Visually Synced Facial Performer},
+  author = {Guan, Jiazhi and Xu, Zhiliang and Zhou, Hang and Wang, Kaisiyuan and He, Shengyi and Zhang, Zhanwang and Liang, Borong and Feng, Haocheng and Ding, Errui and Liu, Jingtuo and Wang, Jingdong and Zhao, Youjian and Liu, Ziwei},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year = {2024}
+}</pre>
+          <br>
+        </div>
+      </div>
+
+
+</body>
+
+
+</html>
