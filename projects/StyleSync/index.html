@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="keywords" content="StyleSync; Lip Sync; Talking Face Generation; Deep learning;">
+  <meta name="description" content="
+  Despite recent advances in syncing lip movements with any audio waves, current methods still struggle to balance generation quality and the model's generalization ability.
+Previous studies either require long-term data for training or produce a similar movement pattern on all subjects with low quality.
+In this paper, we propose StyleSync, an effective framework that enables high-fidelity lip synchronization. We identify that a style-based generator would sufficiently enable such a charming property on both one-shot and few-shot scenarios.
+Specifically, we design a mask-guided spatial information encoding module that preserves the details of the given face. The mouth shapes are accurately modified by audio through modulated convolutions.
+Moreover, our design also enables personalized lip-sync by introducing style space and generator refinement on only limited frames. Thus the identity and talking style of a target person could be accurately preserved.
+Extensive experiments demonstrate the effectiveness of our method in producing high-fidelity results on a variety of scenes.
+  ">
+  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+  <link rel="stylesheet" href="css.css" type="text/css">
+  <link rel="stylesheet" href="project.css" type="text/css" media="screen">
+  <script async="" src="prettify.js"></script>
+
+  <title>StyleSync</title>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39824124-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>StyleSync: High-Fidelity Generalized and Personalized <br>
+          Lip Sync in Style-based Generator</h1>
+
+        <div class="authors">
+          <a href="https://guanjz20.github.io/">Jiazhi Guan</a><sup>1,2*</sup>&nbsp;&nbsp;
+          Zhanwang Zhang<sup>1*</sup>&nbsp;&nbsp;
+          <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><sup>1†</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=BIixVT0AAAAJ">Tianshu Hu</a><sup>1†</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=2Pedf3EAAAAJ">Kaisiyuan Wang</a><sup>3</sup>&nbsp;&nbsp;
+
+          <br>
+          <a href="https://scholar.google.com/citations?user=ui6DYGoAAAAJ">Dongliang He</a><sup>2</sup>&nbsp;&nbsp;
+          Haocheng Feng<sup>1</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=tVV3jmcAAAAJ">Jingtuo Liu<sup>1</sup>&nbsp;&nbsp;
+            <a href="https://scholar.google.com/citations?user=1wzEtxcAAAAJ">Errui Ding</a><sup>1</sup>&nbsp;&nbsp;
+            <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>4</sup>&nbsp;&nbsp;
+            <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a><sup>1</sup>
+        </div>
+
+        <div class="affiliations">
+
+          1. Department of Computer Vision Technology (VIS), Baidu Inc.,&nbsp;&nbsp;
+          2. Tsinghua University,<br>
+          3. The University of Sydney,&nbsp;&nbsp;
+          4. S-Lab, Nanyang Technological University.
+        </div>
+
+        <div class="venue">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (<a
+            href="https://cvpr2023.thecvf.com/">CVPR</a>) 2023 </div>
+      </div>
+
+      <center><img src="pipeline.png" border="0" width="90%"></center>
+
+      <div class="section abstract">
+        <h1>Abstract</h1>
+        <br>
+        <p>
+          Despite recent advances in syncing lip movements with any audio waves, current methods still struggle to
+          balance generation quality and the model's generalization ability.
+          Previous studies either require long-term data for training or produce a similar movement pattern on all
+          subjects with low quality.
+          In this paper, we propose StyleSync, an effective framework that enables high-fidelity lip synchronization. We
+          identify that a style-based generator would sufficiently enable such a charming property on both one-shot and
+          few-shot scenarios.
+          Specifically, we design a mask-guided spatial information encoding module that preserves the details of the
+          given face. The mouth shapes are accurately modified by audio through modulated convolutions.
+          Moreover, our design also enables personalized lip-sync by introducing style space and generator refinement on
+          only limited frames. Thus the identity and talking style of a target person could be accurately preserved.
+          Extensive experiments demonstrate the effectiveness of our method in producing high-fidelity results on a
+          variety of scenes.
+        </p>
+      </div>
+
+      <div class="section demo">
+        <h1>Demo Video</h1>
+        <br>
+        <center>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/uuBglL2KGFc" frameborder="0"
+            allowfullscreen></iframe>
+          </video>
+        </center>
+      </div>
+
+      <div class="section materials">
+        <h1>Materials</h1>
+        <center>
+          <ul>
+            <li class="grid">
+              <div class="griditem">
+                <a href="https://arxiv.org/pdf/2305.05445.pdf" class="imageLink"><img
+                    src="paper.png"></a>
+                <br>
+                <a href="https://arxiv.org/pdf/2305.05445.pdf">Paper</a>
+              </div>
+            </li>
+
+            <!--		  <li class="grid">-->
+            <!--	      <div class="griditem">-->
+            <!--		<a href="https://drive.google.com/file/d/182roBLw9NChEugMHuLLkmuElifFYhQaq/view" class="imageLink"><img src="poster.png"></a><br>-->
+            <!--		  <a href="https://drive.google.com/file/d/182roBLw9NChEugMHuLLkmuElifFYhQaq/view">Poster</a>-->
+            <!--		</div>-->
+            <!--	      </li>-->
+
+            <li class="grid">
+              <div class="griditem">
+                <a href="https://github.com/guanjz20/StyleSync" class="imageLink"><img
+                    src="code.png"></a>
+                <br>
+                <a href="https://github.com/guanjz20/StyleSync">Code</a>
+              </div>
+            </li>
+
+          </ul>
+        </center>
+      </div>
+
+      <div class="section citation">
+        <h1>Citation</h1>
+        <div class="section bibtex">
+          <pre>
+@inproceedings{guan2023stylesync,
+  title = {StyleSync: High-Fidelity Generalized and Personalized Lip Sync in Style-based Generator},
+  author = {Guan, Jiazhi and Zhang, Zhanwang and Zhou, Hang and HU, Tianshu and Wang, Kaisiyuan and He, Dongliang and Feng, Haocheng and Liu, Jingtuo and Ding, Errui and Liu, Ziwei and Wang, Jingdong},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year = {2023}
+}</pre>
+          <br>
+        </div>
+      </div>
+
+      
+</body>
+
+
+</html>
