@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="keywords"
+    content="TALK-Act: Enhance Textural-Awareness for 2D Speaking Avatar Reenactment with Diffusion Model; TALK-Act; Human Animation; Digital Avatar; Deep learning;">
+  <meta name="description" content="
+  Recently, 2D speaking avatars have increasingly participated in everyday scenarios due to the fast development of facial animation techniques. However, most existing works neglect the explicit control of human bodies. In this paper, we propose to drive not only the faces but also the torso and gesture movements of a speaking figure. Inspired by recent advances in diffusion models, we propose the Motion-Enhanced Textural-Aware ModeLing for SpeaKing Avatar Reenactment (TALK-Act) framework, which enables high-fidelity avatar reenactment from only short footage of monocular video. Our key idea is to enhance the textural awareness with explicit motion guidance in diffusion modeling. Specifically, we carefully construct 2D and 3D structural information as intermediate guidance. While recent diffusion models adopt a side network for control information injection, they fail to synthesize temporally stable results even with person-specific fine-tuning. We propose a Motion-Enhanced Textural Alignment module to enhance the bond between driving and target signals. Moreover, we build a Memory-based Hand-Recovering module to help with the difficulties in hand-shape preserving. After pre-training, our model can achieve high-fidelity 2D avatar reenactment with only 30 seconds of person-specific data. Extensive experiments demonstrate the effectiveness and superiority of our proposed framework.
+  ">
+  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+  <link rel="stylesheet" href="css.css" type="text/css">
+  <link rel="stylesheet" href="project.css" type="text/css" media="screen">
+  <script async="" src="prettify.js"></script>
+
+  <title>TALK-Act</title>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39824124-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+
+
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>
+          TALK-Act: Enhance Textural-Awareness for 2D Speaking Avatar Reenactment with Diffusion Model
+        </h1>
+
+        <div class="authors">
+          <a href="https://guanjz20.github.io/">Jiazhi Guan</a><sup>1</sup>&nbsp;&nbsp;
+          Quanwei Yang<sup>4</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=2Pedf3EAAAAJ">Kaisiyuan Wang</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><sup>2†</sup>&nbsp;&nbsp;
+          Shengyi He<sup>2</sup>&nbsp;&nbsp;
+          <a href="https://seanseattle.github.io/">Zhiliang Xu</a><sup>2</sup>&nbsp;&nbsp;
+          <br>
+          <a href="https://scholar.google.com/citations?hl=zh-CN&user=pnuQ5UsAAAAJ&view_op=list_works&sortby=pubdate">Haocheng
+            Feng</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=1wzEtxcAAAAJ">Errui Ding</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a><sup>2</sup>&nbsp;&nbsp;
+          Hongtao Xie<sup>4</sup>&nbsp;&nbsp;
+          <a href="https://www.cs.tsinghua.edu.cn/csen/info/1309/4355.htm">Youjian Zhao</a><sup>1,3†</sup>&nbsp;&nbsp;
+          <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>5</sup>&nbsp;&nbsp;
+        </div>
+
+        <div class="affiliations">
+          1. DCST, BNRist, Tsinghua University,&nbsp;&nbsp;
+          2. Baidu Inc.,&nbsp;&nbsp;
+          3. Zhongguancun Laboratory,
+          <br>
+          4. University of Science and Technology of China,&nbsp;&nbsp;
+          5. S-Lab, Nanyang Technological University.
+        </div>
+
+        <div class="venue">SIGGRAPH Asia Conference Proceedings (<b><a href="https://asia.siggraph.org/2024/"></a>SIGGRAPH Asia</b>), 2024
+        </div>
+      </div>
+
+      <center><img src="pipeline.png" border="0" width="90%"></center>
+
+      <div class="section abstract">
+        <h1>Abstract</h1>
+        <br>
+        <p>
+          Recently, 2D speaking avatars have increasingly participated in everyday scenarios due to the fast development of facial animation techniques. However, most existing works neglect the explicit control of human bodies. In this paper, we propose to drive not only the faces but also the torso and gesture movements of a speaking figure. Inspired by recent advances in diffusion models, we propose the Motion-Enhanced Textural-Aware ModeLing for SpeaKing Avatar Reenactment (TALK-Act) framework, which enables high-fidelity avatar reenactment from only short footage of monocular video. Our key idea is to enhance the textural awareness with explicit motion guidance in diffusion modeling. Specifically, we carefully construct 2D and 3D structural information as intermediate guidance. While recent diffusion models adopt a side network for control information injection, they fail to synthesize temporally stable results even with person-specific fine-tuning. We propose a Motion-Enhanced Textural Alignment module to enhance the bond between driving and target signals. Moreover, we build a Memory-based Hand-Recovering module to help with the difficulties in hand-shape preserving. After pre-training, our model can achieve high-fidelity 2D avatar reenactment with only 30 seconds of person-specific data. Extensive experiments demonstrate the effectiveness and superiority of our proposed framework.
+        </p>
+      </div>
+
+      <div class="section demo">
+        <h1>Demo Video</h1>
+        <br>
+        <center>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/0lNeENOUn7o" frameborder="0"
+            allowfullscreen></iframe>
+          </video>
+        </center>
+      </div>
+
+      <div class="section materials">
+        <h1>Materials</h1>
+        <center>
+          <ul>
+            <li class="grid">
+              <div class="griditem">
+                <a href="https://arxiv.org/pdf/2410.10696" class="imageLink"><img src="paper.png"></a>
+                <br>
+                <a href="https://arxiv.org/pdf/2410.10696">Paper</a>
+              </div>
+            </li>
+
+            <!-- <li class="grid">
+              <div class="griditem">
+                <a href="https://github.com/guanjz20/ReSyncer" class="imageLink"><img src="code.png"></a>
+                <br>
+                <a href="https://github.com/guanjz20/ReSyncer">Code</a>
+              </div>
+            </li>  -->
+
+          </ul>
+        </center>
+      </div>
+
+      <div class="section citation">
+        <h1>Citation</h1>
+        <div class="section bibtex">
+          <pre>
+@inproceedings{guan2024talkact,
+  title = {TALK-Act: Enhance Textural-Awareness for 2D Speaking Avatar Reenactment with Diffusion Model},
+  author = {Guan, Jiazhi and Yang, Quanwei and Wang, Kaisiyuan and Zhou, Hang  and He, Shengyi and Xu, Zhiliang and Feng, Haocheng and Ding, Errui and Wang, Jingdong and Xie, Hongtao and Zhao, Youjian and Liu, Ziwei},
+  booktitle = {SIGGRAPH Asia 2024 Conference Papers},
+  year = {2024}
+}</pre>
+          <br>
+        </div>
+      </div>
+
+
+</body>
+
+
+</html>
