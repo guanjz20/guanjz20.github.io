@@ -66,7 +66,8 @@
           5. S-Lab, Nanyang Technological University.
         </div>
 
-        <div class="venue">SIGGRAPH Asia Conference Proceedings (<b><a href="https://asia.siggraph.org/2024/"></a>SIGGRAPH Asia</b>), 2024
+        <div class="venue">SIGGRAPH Asia Conference Proceedings (<b><a
+              href="https://asia.siggraph.org/2024/"></a>SIGGRAPH Asia</b>), 2024
         </div>
       </div>
 
@@ -76,7 +77,20 @@
         <h1>Abstract</h1>
         <br>
         <p>
-          Recently, 2D speaking avatars have increasingly participated in everyday scenarios due to the fast development of facial animation techniques. However, most existing works neglect the explicit control of human bodies. In this paper, we propose to drive not only the faces but also the torso and gesture movements of a speaking figure. Inspired by recent advances in diffusion models, we propose the Motion-Enhanced Textural-Aware ModeLing for SpeaKing Avatar Reenactment (TALK-Act) framework, which enables high-fidelity avatar reenactment from only short footage of monocular video. Our key idea is to enhance the textural awareness with explicit motion guidance in diffusion modeling. Specifically, we carefully construct 2D and 3D structural information as intermediate guidance. While recent diffusion models adopt a side network for control information injection, they fail to synthesize temporally stable results even with person-specific fine-tuning. We propose a Motion-Enhanced Textural Alignment module to enhance the bond between driving and target signals. Moreover, we build a Memory-based Hand-Recovering module to help with the difficulties in hand-shape preserving. After pre-training, our model can achieve high-fidelity 2D avatar reenactment with only 30 seconds of person-specific data. Extensive experiments demonstrate the effectiveness and superiority of our proposed framework.
+          Recently, 2D speaking avatars have increasingly participated in everyday scenarios due to the fast development
+          of facial animation techniques. However, most existing works neglect the explicit control of human bodies. In
+          this paper, we propose to drive not only the faces but also the torso and gesture movements of a speaking
+          figure. Inspired by recent advances in diffusion models, we propose the Motion-Enhanced Textural-Aware
+          ModeLing for SpeaKing Avatar Reenactment (TALK-Act) framework, which enables high-fidelity avatar reenactment
+          from only short footage of monocular video. Our key idea is to enhance the textural awareness with explicit
+          motion guidance in diffusion modeling. Specifically, we carefully construct 2D and 3D structural information
+          as intermediate guidance. While recent diffusion models adopt a side network for control information
+          injection, they fail to synthesize temporally stable results even with person-specific fine-tuning. We propose
+          a Motion-Enhanced Textural Alignment module to enhance the bond between driving and target signals. Moreover,
+          we build a Memory-based Hand-Recovering module to help with the difficulties in hand-shape preserving. After
+          pre-training, our model can achieve high-fidelity 2D avatar reenactment with only 30 seconds of
+          person-specific data. Extensive experiments demonstrate the effectiveness and superiority of our proposed
+          framework.
         </p>
       </div>
 
@@ -90,6 +104,219 @@
         </center>
       </div>
 
+
+      <div class="section results">
+        <h1>Our Results</h1>
+        <b>Feel free to download our results for use in your comparisons.</b>
+
+        <h3 style="text-align: center;">Cross-Driven Results</h3>
+
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_1/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video (Pose)</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_1/ref1.png" alt="Image 1" style="width: 180px; height: 180px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_1/driven1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_1/ref2.png" alt="Image 1" style="width: 180px; height: 180px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_1/driven2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <!-- set 2             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_2/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video (Pose)</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_2/ref1.png" alt="Image 1" style="width: 180px; height: 180px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_2/driven1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_2/ref2.png" alt="Image 1" style="width: 180px; height: 180px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 180px; height: 180px; display: block;">
+                <source src="ours/set_2/driven2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_7/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_7/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_7/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_8/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_8/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_8/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="text-align: center;">Self-Driven Results</h3>
+
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_3/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_3/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_3/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_4/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_4/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_4/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_5/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_5/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_5/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_6/driving.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driving Video</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="ours/set_6/ref.png" alt="Image 1" style="width: 224px; height: 224px; display: block;">
+              <p style="text-align: center; margin: 5px 0;">Reference Frame</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 224px; height: 224px; display: block;">
+                <source src="ours/set_6/driven.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p style="text-align: center; margin: 5px 0;">Driven Video</p>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
       <div class="section materials">
         <h1>Materials</h1>
         <center>
@@ -101,15 +328,6 @@
                 <a href="https://arxiv.org/pdf/2410.10696">Paper</a>
               </div>
             </li>
-
-            <!-- <li class="grid">
-              <div class="griditem">
-                <a href="https://github.com/guanjz20/ReSyncer" class="imageLink"><img src="code.png"></a>
-                <br>
-                <a href="https://github.com/guanjz20/ReSyncer">Code</a>
-              </div>
-            </li>  -->
-
           </ul>
         </center>
       </div>
