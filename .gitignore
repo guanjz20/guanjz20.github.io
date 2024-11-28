@@ -3,3 +3,4 @@ _*/
 Gemfile*
 run.sh
 .DS_Store
+projects/_*
