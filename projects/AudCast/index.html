@@ -1,0 +1,206 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="keywords"
+    content="AudCast: Audio-Driven Human Video Generation by Cascaded Diffusion Transformers; AudCast; Human Video Generation; Deep learning;">
+  <meta name="description" content="
+  Despite the recent progress of audio-driven video generation, existing methods mostly focus on driving facial movements, leading to non-coherent head and body dynamics. Moving forward, it is desirable yet challenging to generate holistic human videos with both accurate lip-sync and delicate co-speech gestures w.r.t. given audio. In this work, we propose AudCast, a generalized audio-driven human video generation framework adopting a cascade Diffusion-Transformers (DiTs) paradigm, which synthesizes holistic human videos based on a reference image and a given audio. 1) Firstly, an audio-conditioned Holistic Human DiT architecture is proposed to directly drive the movements of any human body with vivid gesture dynamics. 2) Then to enhance hand and face details that are well-knownly difficult to handle, a Regional Refinement DiT leverages regional 3D fitting as the bridge to reform the signals, producing the final results.  Extensive experiments demonstrate that our framework generates high-fidelity audio-driven holistic human videos with temporal coherence and fine facial and hand details. 
+  ">
+  <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+  <link rel="stylesheet" href="css.css" type="text/css">
+  <link rel="stylesheet" href="project.css" type="text/css" media="screen">
+  <script async="" src="prettify.js"></script>
+
+  <title>AudCast</title>
+  <!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39824124-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script> -->
+
+</head>
+
+
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>
+          AudCast: Audio-Driven Human Video Generation by Cascaded Diffusion Transformers
+        </h1>
+
+        <div class="authors">
+          <a href="https://guanjz20.github.io/">Jiazhi Guan</a><sup>1,2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=2Pedf3EAAAAJ">Kaisiyuan Wang</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://seanseattle.github.io/">Zhiliang Xu</a><sup>2</sup>&nbsp;&nbsp;
+          Quanwei Yang<sup>5</sup>&nbsp;&nbsp;
+          <a href="https://sunyasheng.github.io/">Yasheng Sun</a><sup>6</sup>&nbsp;&nbsp;
+          Shengyi He<sup>2</sup>&nbsp;&nbsp;
+          <br>
+          <a href="https://scholar.google.com/citations?user=miLIl2gAAAAJ&hl=en">Borong
+            Liang</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://yukangcao.github.io/">Yukang Cao</a><sup>3</sup>&nbsp;&nbsp;
+          Yingying Li<sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?hl=zh-CN&user=pnuQ5UsAAAAJ&view_op=list_works&sortby=pubdate">Haocheng
+            Feng</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://scholar.google.com/citations?user=1wzEtxcAAAAJ">Errui Ding</a><sup>2</sup>&nbsp;&nbsp;
+          <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a><sup>2</sup>&nbsp;&nbsp;
+          <br>
+          <a href="https://www.cs.tsinghua.edu.cn/csen/info/1309/4355.htm">Youjian Zhao</a><sup>1,4†</sup>&nbsp;&nbsp;
+          <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><sup>2†</sup>&nbsp;&nbsp;
+          <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>5†</sup>&nbsp;&nbsp;
+        </div>
+
+        <div class="affiliations">
+          1. DCST, Tsinghua University,&nbsp;&nbsp;
+          2. Baidu Inc.,&nbsp;&nbsp;
+          3. S-Lab, Nanyang Technological University,
+          <br>
+          4. Zhongguancun Laboratory,&nbsp;&nbsp;
+          5. University of Science and Technology of China,&nbsp;&nbsp;
+          6. KAUST.
+        </div>
+
+        <div class="venue">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (<a
+          href="https://cvpr.thecvf.com/Conferences/2025">CVPR</a>) 2025 </div>
+
+      </div>
+
+      <center><img src="pipeline.png" border="0" width="90%"></center>
+
+      <div class="section abstract">
+        <h1>Abstract</h1>
+        <br>
+        <p>
+          Despite the recent progress of audio-driven video generation, existing methods mostly focus on driving facial
+          movements, leading to non-coherent head and body dynamics. Moving forward, it is desirable yet challenging to
+          generate holistic human videos with both accurate lip-sync and delicate co-speech gestures w.r.t. given audio.
+          In this work, we propose AudCast, a generalized audio-driven human video generation framework adopting a
+          cascade Diffusion-Transformers (DiTs) paradigm, which synthesizes holistic human videos based on a reference
+          image and a given audio. 1) Firstly, an audio-conditioned Holistic Human DiT architecture is proposed to
+          directly drive the movements of any human body with vivid gesture dynamics. 2) Then to enhance hand and face
+          details that are well-knownly difficult to handle, a Regional Refinement DiT leverages regional 3D fitting as
+          the bridge to reform the signals, producing the final results. Extensive experiments demonstrate that our
+          framework generates high-fidelity audio-driven holistic human videos with temporal coherence and fine facial
+          and hand details.
+        </p>
+      </div>
+
+
+      <!-- <div class="section demo">
+        <h1>Demo Video</h1>
+        <br>
+        <center>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/" frameborder="0"
+            allowfullscreen></iframe>
+          </video>
+        </center>
+      </div> -->
+
+
+      <div class="section results">
+        <h1>Results</h1>
+
+        <h3>Comparions with S2G</h3>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 896px; height: 500px; display: block; object-fit: contain;">
+                <source src="video/cmp_s2g.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <h3>Comparions with Audio2Gesture2Video Baselines</h3>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 896px; height: 500px; display: block; object-fit: contain;">
+                <source src="video/cmp_2stage_baseline.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <h3>Comparions with Vlogger's Demo Videos</h3>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 896px; height: 500px; display: block; object-fit: contain;">
+                <source src="video/cmp_vlogger.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <h3>Comparions with Cyberhost's Demo Videos</h3>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+          <!-- set 1             -->
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <video controls style="width: 896px; height: 500px; display: block; object-fit: contain;">
+                <source src="video/cmp_cyberhost.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+
+      <div class="section materials">
+        <h1>Materials</h1>
+        <center>
+          <ul>
+            <li class="grid">
+              <div class="griditem">
+                <a href="https://arxiv.org/abs/2503.19824" class="imageLink"><img src="paper.png"></a>
+                <br>
+                <a href="https://arxiv.org/abs/2503.19824">Paper</a>
+              </div>
+            </li>
+
+          </ul>
+        </center>
+      </div>
+
+      <div class="section citation">
+        <h1>Citation</h1>
+        <div class="section bibtex">
+          <pre>
+@inproceedings{guan2024resyncer,
+  title = {AudCast: Audio-Driven Human Video Generation by Cascaded Diffusion Transformers},
+  author = {Guan, Jiazhi and  Wang, Kaisiyuan and Xu, Zhiliang and Yang, Quanwei and Sun, Yasheng and He, Shengyi and Liang, Borong and Cao, Yukang and Li, Yingying and Feng, Haocheng and Ding, Errui and Wang, Jingdong and Zhao, Youjian and Zhou, Hang and Liu, Ziwei},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year = {2025}
+}</pre>
+          <br>
+        </div>
+      </div>
+
+
+</body>
+
+
+</html>
