@@ -4,3 +4,5 @@ Gemfile*
 run.sh
 .DS_Store
 projects/_*
+
+*.back

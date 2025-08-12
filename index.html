@@ -21,50 +21,319 @@
   </script> -->
 
   <style>
-    body {
-      width: 1024px;
-      margin: 0 auto;
+    * {
+      box-sizing: border-box;
     }
+    
+    body {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 15px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #f8f9fa;
+    }
+    
+    #layout-content {
+      background: #ffffff;
+      border: 1px solid #e1e8ed;
+      padding: 35px;
+      margin-top: 15px;
+      position: relative;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+    
+    #layout-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3498db 0%, #5dade2 50%, #3498db 100%);
+    }
+    
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 35px;
+      align-items: start;
+      margin-bottom: 35px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #e1e8ed;
+    }
+    
+    .profile-content h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    
+    .profile-content h3 {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+    
+    .profile-content p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    
+    .profile-image img {
+      border-radius: 12px;
+      background: #ffffff;
+      max-width: 260px;
+      height: auto;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+        
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 30px 0 18px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #3498db;
+      letter-spacing: 0.5px;
+    }
+    
+    ul {
+      padding-left: 20px;
+      list-style-type: '•';
+    }
+    
+    li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    
+    .experience-item {
+      margin-bottom: 18px;
+      padding: 18px;
+      background: #f8f9fa;
+      border: 1px solid #e1e8ed;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+    
+    .experience-date {
+      font-weight: 500;
+      color: #3498db;
+      float: right;
+      font-size: 0.9rem;
+    }
+    
+    .publication-item {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #e1e8ed;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+    
+    .publication-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    
+    .publication-authors {
+      color: #5d6d7e;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    
+    .publication-venue {
+      color: #3498db;
+      font-weight: 500;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .publication-links {
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+    
+    .publication-links a {
+      color: #3498db;
+      text-decoration: none;
+      margin-right: 12px;
+      border-bottom: 1px dotted transparent;
+      transition: border-color 0.2s ease;
+    }
+    
+    .publication-links a:hover {
+      border-bottom: 1px dotted #3498db;
+    }
+    
     table {
       width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 18px 0;
+      font-size: 0.9rem;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
     }
-    /* img {
-      max-width: 100%;
-    } */
+    
+    table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e1e8ed;
+    }
+    
+    table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    a {
+      color: #3498db;
+      text-decoration: none;
+      border-bottom: 1px dotted transparent;
+      transition: border-color 0.2s ease;
+    }
+    
+    a:hover {
+      border-bottom: 1px dotted #3498db;
+    }
+    
+    strong {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    
+    /* Retro terminal-like details */
+    .terminal-cursor {
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      #layout-content {
+        padding: 25px;
+        margin-top: 10px;
+      }
+      
+      .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 25px;
+      }
+      
+      .profile-content h1 {
+        font-size: 1.7rem;
+      }
+      
+      .profile-content h3 {
+        font-size: 1rem;
+      }
+      
+      .profile-image img {
+        max-width: 220px;
+      }
+      
+      h2 {
+        font-size: 1.2rem;
+        margin: 25px 0 15px 0;
+      }
+      
+      .experience-date {
+        float: none;
+        display: block;
+        margin-top: 6px;
+        font-size: 0.85rem;
+      }
+      
+      .publication-item {
+        padding: 15px;
+      }
+      
+      .publication-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      
+      .publication-links a {
+        margin-right: 0;
+        margin-bottom: 4px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.85rem;
+      }
+      
+      .profile-content h1 {
+        font-size: 1.5rem;
+      }
+      
+      .profile-content h3 {
+        font-size: 0.9rem;
+      }
+      
+      .profile-image img {
+        max-width: 180px;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      table td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <div id="layout-content" style="margin-top:25px">
+  <div id="layout-content">
 
-    <table>
-      <tbody>
-        <tr>
-          <td width="670">
-            <div id="toptitle">
-              <h1>JIAZHI (JAX) GUAN <br> 官佳智<h1>
-            </div>
-            <h3>Ph.D.</h3>
-            <p>
-              Dept. of Computer Vision Technology (VIS)<br>
-              Baidu Inc. <br>
-              <!-- Beijing, China<br> -->
-              <br>
-              Email: <a href="mailto:guanjz20@outlook.com">guanjz20 [at] outlook.com</a>
-              <br>
-              <a href="https://scholar.google.com/citations?user=LocNpywAAAAJ&hl=zh-CN">[Google Scholar]</a> <a
-                href="https://github.com/guanjz20">[Github]</a>
-            </p>
-          </td>
-          <td>
-            <!-- <img src="pics/me.jpg" border="0" width="200"><br> -->
-            <!-- <img src="pics/me_milano.jpeg" border="0" width="350"><br> -->
-            <img src="pics/me_thu_phd.jpg" border="0" width="350"><br>
-          </td>
-        <tr>
-      </tbody>
-    </table>
+    <div class="hero-section">
+      <div class="profile-content">
+        <h1>JIAZHI (JAX) GUAN<br>官佳智</h1>
+        <h3>Ph.D.</h3>
+        <p>
+          Dept. of Computer Vision Technology (VIS)<br>
+          Baidu Inc.<br>
+          Email: <a href="mailto:guanjz20@outlook.com">guanjz20 [at] outlook.com</a><br>
+          <a href="https://scholar.google.com/citations?user=LocNpywAAAAJ&hl=zh-CN">[Google Scholar]</a>
+          <a href="https://github.com/guanjz20">[Github]</a>
+        </p>
+      </div>
+      <div class="profile-image">
+        <img src="pics/me_thu_phd.jpg" alt="Jiazhi Guan">
+      </div>
+    </div>
 
     <h2>Biography</h2>
     <p>
@@ -81,162 +350,184 @@ Three papers accepted by CVPR 2020.
 </ul>-->
 
     <h2>Experiences</h2>
-    <ul>
+    
+    <div class="experience-item">
+      <strong>R&D Engineer | Baidu Inc. VIS, Shenzhen</strong>
+      <span class="experience-date">Jun. 2025 – Present</span>
+      <br>
+      Topic: Digital Human Animation/Generation
+    </div>
 
-      <li>
-        R&D Engineer | Baidu Inc. VIS, Shenzhen <div style="float:right; text-align:right">Jun. 2025 – Present
-        </div><br>
-        Topic: Digital Human Animation/Generation<br>
-      </li>
+    <div class="experience-item">
+      <strong>Visiting Student | S-Lab, Nanyang Technological University, Singapore</strong>
+      <span class="experience-date">Oct. 2024 – Jan. 2025</span>
+      <br>
+      Topic: Body Animation<br>
+      Advisor: <a href="https://liuziwei7.github.io/">Ziwei Liu</a>
+    </div>
 
-      <li>
-        Visiting Student | S-Lab, Nanyang Technological University, Singapore <div style="float:right; text-align:right">Oct. 2024 – Jan. 2025
-        </div><br>
-        Topic: Body Animation <br>
-        Advisor: <a href="https://liuziwei7.github.io/">Ziwei Liu</a><br>
-        </li>
-  
-      <li>
-        Research Intern | Baidu Inc. VIS, Beijing <div style="float:right; text-align:right">Nov. 2021 – Jun. 2025
-        </div><br>
-        Topic: Facial Animation, Body Animation<br>
-        Advisor: <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a><br>
-      </li>
-
-    </ul>
-
-
-
-    <h2>Selected Publications </h2>
-    *: equal contribution | †: Corresponding author
-    <ul>
-      
-      <li>
-        <b><a href="https://cvpr.thecvf.com/virtual/2025/poster/32432">AudCast: Audio-Driven Human Video Generation by Cascaded Diffusion Transformers</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Kaisiyuan Wang, Zhiliang Xu, Quanwei Yang, Yasheng Sun, Shengyi He, Borong Liang,<br> Yukang Cao, Yingying Li, Haocheng Feng, Errui Ding, Jingdong Wang, Youjian Zhao†, Hang Zhou†, Ziwei Liu†<br>
-        <i>IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2025.<br></i>
-        [<a href="projects/AudCast">Project</a>]
-        [<a href="https://arxiv.org/pdf/2503.19824">PDF</a>]
-        <p style="margin-top:3px"></p>  
-        </p>
-      </li>
+    <div class="experience-item">
+      <strong>Research Intern | Baidu Inc. VIS, Beijing</strong>
+      <span class="experience-date">Nov. 2021 – Jun. 2025</span>
+      <br>
+      Topic: Facial Animation, Body Animation<br>
+      Advisor: <a href="https://hangz-nju-cuhk.github.io/">Hang Zhou</a>
+    </div>
 
 
-      <li>
-        <b><a href="https://dl.acm.org/doi/10.1145/3680528.3687571">TALK-Act: Enhance Textural-Awareness for 2D Speaking Avatar Reenactment with Diffusion Model</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Quanwei Yang, Kaisiyuan Wang, Hang Zhou†, Shengyi He, Zhiliang Xu, Haocheng Feng,<br> Errui Ding, Jingdong Wang, Hongtao Xie, Youjian Zhao†, Ziwei Liu<br>
-        <i>SIGGRAPH Asia Conference Proceedings (<b>SIGGRAPH Asia</b>), 2024.<br></i>
-        [<a href="projects/TALK-Act">Project</a>]
-        [<a href="https://arxiv.org/pdf/2410.10696">PDF</a>]
-        <p style="margin-top:3px"></p>  
-        </p>
-      </li>
+
+    <h2>Selected Publications</h2>
+    <p><small>*: equal contribution | †: Corresponding author</small></p>
+    
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://cvpr.thecvf.com/virtual/2025/poster/32432">AudCast: Audio-Driven Human Video Generation by Cascaded Diffusion Transformers</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Kaisiyuan Wang, Zhiliang Xu, Quanwei Yang, Yasheng Sun, Shengyi He, Borong Liang, Yukang Cao, Yingying Li, Haocheng Feng, Errui Ding, Jingdong Wang, Youjian Zhao†, Hang Zhou†, Ziwei Liu†
+      </div>
+      <div class="publication-venue">
+        IEEE Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2025.
+      </div>
+      <div class="publication-links">
+        <a href="projects/AudCast">Project</a>
+        <a href="https://arxiv.org/pdf/2503.19824">PDF</a>
+      </div>
+    </div>
 
 
-      <li>
-        <b><a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/5783_ECCV_2024_paper.php">ReSyncer: Rewiring Style-based Generator for Unified Audio-Visually Synced Facial Performer</b>
-        <br></a>
-        <b>Jiazhi Guan*</b>, Zhiliang Xu*, Hang Zhou†, Kaisiyuan Wang, Shengyi He, Zhanwang Zhang, Borong Liang,<br>
-        Haocheng Feng, Errui Ding, Jingtuo Liu, Jingdong Wang, Youjian Zhao†, Ziwei Liu<br>
-        <i>European Conference on Computer Vision (<b>ECCV</b>, <font color='red'>Oral</font>), 2024.<br></i>
-        [<a href="projects/ReSyncer">Project</a>]
-        [<a href="https://arxiv.org/pdf/2408.03284">PDF</a>]
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
+      <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://dl.acm.org/doi/10.1145/3680528.3687571">TALK-Act: Enhance Textural-Awareness for 2D Speaking Avatar Reenactment with Diffusion Model</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Quanwei Yang, Kaisiyuan Wang, Hang Zhou†, Shengyi He, Zhiliang Xu, Haocheng Feng, Errui Ding, Jingdong Wang, Hongtao Xie, Youjian Zhao†, Ziwei Liu
+      </div>
+      <div class="publication-venue">
+        SIGGRAPH Asia Conference Proceedings (<strong>SIGGRAPH Asia</strong>), 2024.
+      </div>
+      <div class="publication-links">
+        <a href="projects/TALK-Act">Project</a>
+        <a href="https://arxiv.org/pdf/2410.10696">PDF</a>
+      </div>
+    </div>
 
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/5783_ECCV_2024_paper.php">ReSyncer: Rewiring Style-based Generator for Unified Audio-Visually Synced Facial Performer</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan*</strong>, Zhiliang Xu*, Hang Zhou†, Kaisiyuan Wang, Shengyi He, Zhanwang Zhang, Borong Liang, Haocheng Feng, Errui Ding, Jingtuo Liu, Jingdong Wang, Youjian Zhao†, Ziwei Liu
+      </div>
+      <div class="publication-venue">
+        European Conference on Computer Vision (<strong>ECCV</strong>, <span style="color: #e74c3c;">Oral</span>), 2024.
+      </div>
+      <div class="publication-links">
+        <a href="projects/ReSyncer">Project</a>
+        <a href="https://arxiv.org/pdf/2408.03284">PDF</a>
+      </div>
+    </div>
 
-      <li>
-        <b><a href="https://cvpr.thecvf.com/virtual/2023/poster/22944">StyleSync: High-Fidelity Generalized and
-            Personalized Lip Sync in Style-based Generator</b>
-        <br></a>
-        <b>Jiazhi Guan*</b>, Zhanwang Zhang*, Hang Zhou†, Tianshu Hu†, Kaisiyuan Wang, Dongliang He,<br> Haocheng Feng,
-        Jingtuo Liu, Errui Ding, Ziwei Liu, Jingdong Wang<br>
-        <i>IEEE Conference on Computer Vision and Pattern Recognition (<b>CVPR</b>), 2023.<br></i>
-        [<a href="projects/StyleSync">Project</a>]
-        [<a href="https://arxiv.org/pdf/2305.05445">PDF</a>]
-        <!-- [<a href="https://youtu.be/uuBglL2KGFc?si=vJhQkAgWRTZB_CQr">Video</a>] -->
-        <!-- [<a href="https://github.com/guanjz20/StyleSync">Code</a>] -->
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://cvpr.thecvf.com/virtual/2023/poster/22944">StyleSync: High-Fidelity Generalized and Personalized Lip Sync in Style-based Generator</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan*</strong>, Zhanwang Zhang*, Hang Zhou†, Tianshu Hu†, Kaisiyuan Wang, Dongliang He, Haocheng Feng, Jingtuo Liu, Errui Ding, Ziwei Liu, Jingdong Wang
+      </div>
+      <div class="publication-venue">
+        IEEE Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2023.
+      </div>
+      <div class="publication-links">
+        <a href="projects/StyleSync">Project</a>
+        <a href="https://arxiv.org/pdf/2305.05445">PDF</a>
+      </div>
+    </div>
 
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/27762">Adversarial Robust Safeguard for Evading Deep Facial Manipulation</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Yi Zhao†, Zhuoer Xu, Changhua Meng, Ke Xu, Youjian Zhao†
+      </div>
+      <div class="publication-venue">
+        Association for the Advancement of Artificial Intelligence (<strong>AAAI</strong>), 2024
+      </div>
+      <div class="publication-links">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/27762/27565">PDF</a>
+        <a href="https://underline.io/lecture/92318-adversarial-robust-safeguard-for-evading-deep-facial-manipulation">Video</a>
+      </div>
+    </div>
 
-      <li>
-        <b><a href="https://ojs.aaai.org/index.php/AAAI/article/view/27762">Adversarial Robust Safeguard for Evading
-            Deep Facial Manipulation</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Yi Zhao†, Zhuoer Xu, Changhua Meng, Ke Xu, Youjian Zhao†<br>
-        <i>Association for the Advancement of Artificial Intelligence (<b>AAAI</b>), 2024<br></i>
-        [<a href="https://ojs.aaai.org/index.php/AAAI/article/view/27762/27565">PDF</a>]
-        [<a
-          href="https://underline.io/lecture/92318-adversarial-robust-safeguard-for-evading-deep-facial-manipulation">Video</a>]
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://dl.acm.org/doi/abs/10.1145/3591106.3592284">Dual-Modality Co-Learning for Unveiling Deepfake in Spatio-Temporal Space</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Hang Zhou, Zhizhi Guo, Tianshu Hu, Lirui Deng, Chengbin Quan, Meng Fang, Youjian Zhao†
+      </div>
+      <div class="publication-venue">
+        ACM International Conference on Multimedia Retrieval (<strong>ICMR</strong>, <span style="color: #e74c3c;">Best Paper Candidate</span>), 2023
+      </div>
+      <div class="publication-links">
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3591106.3592284">PDF</a>
+      </div>
+    </div>
 
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/1d051fb631f104cb2a621451f37676b9-Abstract-Conference.html">Delving into Sequential Patches for Deepfake Detection</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Hang Zhou, Zhibin Hong, Errui Ding, Jingdong Wang, Chengbin Quan, Youjian Zhao†
+      </div>
+      <div class="publication-venue">
+        Conference on Neural Information Processing Systems (<strong>NeurIPS</strong>), 2022.
+      </div>
+      <div class="publication-links">
+        <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/1d051fb631f104cb2a621451f37676b9-Paper-Conference.pdf">PDF</a>
+        <a href="https://neurips.cc/virtual/2022/poster/55159">Video</a>
+      </div>
+    </div>
 
-      <li>
-        <b><a href="https://dl.acm.org/doi/abs/10.1145/3591106.3592284">Dual-Modality Co-Learning for Unveiling Deepfake
-            in Spatio-Temporal Space</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Hang Zhou, Zhizhi Guo, Tianshu Hu, Lirui Deng, Chengbin Quan, Meng Fang, Youjian Zhao†<br>
-        <i>ACM International Conference on Multimedia Retrieval (<b>ICMR</b>, <font color='red'>Best Paper Candidate</font>), 2023<br></i>
-        [<a href="https://dl.acm.org/doi/pdf/10.1145/3591106.3592284">PDF</a>]
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
-
-      <li>
-        <b><a
-            href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/1d051fb631f104cb2a621451f37676b9-Abstract-Conference.html">Delving
-            into Sequential Patches for Deepfake Detection</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Hang Zhou, Zhibin Hong, Errui Ding, Jingdong Wang, Chengbin Quan, Youjian Zhao†<br>
-        <i>Conference on Neural Information Processing Systems (<b>NeurIPS</b>), 2022.<br></i>
-        [<a
-          href="https://proceedings.neurips.cc/paper_files/paper/2022/file/1d051fb631f104cb2a621451f37676b9-Paper-Conference.pdf">PDF</a>]
-        [<a href="https://neurips.cc/virtual/2022/poster/55159">Video</a>]
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
-
-      <li>
-        <b><a href="https://arxiv.org/abs/2207.10402">Detecting Deepfake by Creating Spatio-Temporal Regularity
-            Disruption</b>
-        <br></a>
-        <b>Jiazhi Guan</b>, Hang Zhou, Mingming Gong, Errui Ding, Jingdong Wang, Youjian Zhao†<br>
-        <i>Arxiv: 2207.10402<br></i>
-        [<a href="https://arxiv.org/pdf/2207.10402">PDF</a>]
-        <p style="margin-top:3px"></p>
-        </p>
-      </li>
-    </ul>
+    <div class="publication-item">
+      <div class="publication-title">
+        <a href="https://arxiv.org/abs/2207.10402">Detecting Deepfake by Creating Spatio-Temporal Regularity Disruption</a>
+      </div>
+      <div class="publication-authors">
+        <strong>Jiazhi Guan</strong>, Hang Zhou, Mingming Gong, Errui Ding, Jingdong Wang, Youjian Zhao†
+      </div>
+      <div class="publication-venue">
+        Arxiv: 2207.10402
+      </div>
+      <div class="publication-links">
+        <a href="https://arxiv.org/pdf/2207.10402">PDF</a>
+      </div>
+    </div>
 
 
     <h2>Honors and Awards</h2>
     <table id="Honors" border="0" width="100%">
       <tbody>
-        <tr>
+        <!-- <tr>
           <td>Outstanding Intern, Baidu VIS</td>
           <td>
             <div style="float:right; text-align:right">2024</div>
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Overall Excellence Scholarship, Tsinghua University</td>
           <td>
             <div style="float:right; text-align:right">2022,2023,2024</div>
           </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>Third Place, DeepFake Game Competition, IJCB 2022</td>
           <td>
             <div style="float:right; text-align:right">2022</div>
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Outstanding Graduate, Hubei Provinces</td>
           <td>
